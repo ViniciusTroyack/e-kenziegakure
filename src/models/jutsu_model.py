@@ -19,7 +19,3 @@ class Jutsu():
         if spended_chakr <= 0:
            return 100
         
-
-rasengan = Jutsu('Rasengan', 'Vento', 'a', 20, -15)
-
-print(rasengan.__dict__)
