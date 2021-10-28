@@ -1,14 +1,14 @@
-from ninja_model import Ninja
+from src.models.ninja_model import Ninja
 
 class Jounin(Ninja):
     ninja_level = 'Jounin'
 
-    def __init__(self, name, clan, village, proficiency, is_in_mission=False) -> None:
-        super().__init__(name, clan, village)
+    def __init__(self, proficiency, name, clan, village, ninja_level='Jounin',) -> None:
+        super().__init__(name, clan, village, ninja_level=ninja_level)
         self.proficiency = proficiency
-        self.is_in_mission = is_in_mission
+        self.is_in_mission = False
 
-    
+
     def list_best_proficiency(self):
         proficiency = max(self.proficiency, key=self.proficiency.get)
         return f'{self.name} demonstra maior proficiência em {proficiency}'

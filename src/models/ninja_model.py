@@ -16,14 +16,17 @@ class Ninja():
 
     
     def cast_jutsu(self, jutsu, adversary):
-             
-        if jutsu in self.jutsu_list and jutsu.chakra_spend >= self.chakra_pool and adversary.concious:
-            adversary.health_pool -= jutsu.jutsu_damage
-            self.chakra_pool -= jutsu.chakra_spend
-            return True
-        
-        return False
 
+        if not adversary.concious:
+            return False     
+        
+        if not jutsu in self.jutsu_list or jutsu.chakra_spend > self.chakra_pool:
+            return False
+
+        adversary.health_pool -= jutsu.jutsu_damage
+        self.chakra_pool -= jutsu.chakra_spend
+        return True
+        
         
     @staticmethod
     def check_health(ninja_to_check):

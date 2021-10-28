@@ -19,3 +19,5 @@ class Jutsu():
         if spended_chakr <= 0:
            return 100
         
+        return spended_chakr
+        
